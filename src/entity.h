@@ -3,6 +3,7 @@
 
 #include "level.h"
 
+#define M_PI 3.141592653589
 // An entity represents the common part of all objects in the game
 typedef struct {
     // position

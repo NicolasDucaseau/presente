@@ -16,8 +16,8 @@ int main(int argc, char const *argv[]){
     SetTargetFPS(60);
 
     // Initialize level and fill randomly
-    level *lvl = level_new(50,40);
-    level_fill_random(lvl,6);
+    level *lvl = level_new(15,15);
+    level_fill_random(lvl,5);
 
     // Initialize state (and add enemies)
     state *sta = state_new();

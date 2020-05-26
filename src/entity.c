@@ -1,4 +1,6 @@
 #include "entity.h"
+#include<stdio.h>
+#include<stdlib.h>
 
 #include <math.h>
 
@@ -10,10 +12,18 @@ int entity_physics(const level *lvl, entity *ent){
     // Check if the center is inside a solid cell
     int tile_x = (int) floor(ent->x/TILE_SIZE);
     int tile_y = (int) floor(ent->y/TILE_SIZE);
+    //SE USA PARA COMPROBAR SI LA CASILLA TIENE O NO UN MURO
     char cell = level_get(lvl,tile_x,tile_y);
 
-    if(cell=='#') return 1;
-    return 0;
+
+    //SISTEMA DE COLSION SIMPLE(solo por que se me hacia raro traspasar paredes)
+    if(cell=='#'){
+        ent->x -= ent->vx;
+        ent->y -= ent->vy;
+
+        return 1;
+    }
+    else return 0;
 }
 
 int entity_collision(const entity *ent1, const entity *ent2){

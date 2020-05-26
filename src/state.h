@@ -5,13 +5,18 @@
 
 #define PLAYER_HP  10
 #define PLAYER_RAD 10
-#define PLAYER_SPEED 4
-#define PLAYER_COOLDOWN 8
+#define PLAYER_SPEED 8
+#define PLAYER_COOLDOWN 15
 
 #define MINION_HP   4
 #define MINION_RAD 12
 #define BRUTE_HP   12
 #define BRUTE_RAD  16
+#define EXPLOSIVE_HP 10
+#define EXPLOSIVE_RAD 7
+#define EXPLOSIVE_DMG 9
+#define EXPLOSIVE_RATIO 150.0
+
 
 #define BULLET_DMG 3
 #define BULLET_SPEED 16
@@ -26,7 +31,7 @@ typedef struct {
 } player;
 
 // ==== ENEMY DEFINITION
-typedef enum {MINION=0, BRUTE=1} enemykind;
+typedef enum {MINION=0, BRUTE=1, EXPLOSIVE = 2} enemykind;
 
 typedef struct {
     entity ent;
@@ -49,7 +54,7 @@ typedef struct {
 
 // A state represents everything that's happening with the game objects at a given time.
 typedef struct {
-    // The player
+    // The player TIPO->PLAYER, VARIABLE->PLA
     player pla;
 
     // An array of enemies:

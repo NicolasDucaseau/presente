@@ -43,11 +43,17 @@ void draw_state(const level *lvl, const state *sta){
         // Initialize a Vector2 that represents the center of the entity position
         Vector2 vec = {ent.x,ent.y};
         // Draw a circle with the radius of the entity, color depends on the enemy type
+
         if(sta->enemies[i].kind == MINION){
-            DrawCircleV(vec,ent.rad,YELLOW);
-        }else{
-            DrawCircleV(vec,ent.rad,RED);
+            DrawCircleV(vec,ent.rad,GRAY);
         }
+        else if(sta->enemies[i].kind == BRUTE){
+            DrawCircleV(vec,ent.rad,BLACK);
+        }
+        else
+        //Dibuja al enemigo explosivo color verde
+            DrawCircleV(vec,ent.rad,RED);
+            
     }
 
     // Draw player
